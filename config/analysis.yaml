@@ -1,0 +1,19 @@
+experiment:
+  alpha: 0.05
+  alternative: two-sided
+  baseline_rate: 0.12
+  mde: 0.005
+
+scenarios:
+  - name: best
+    monthly_visitors: 150000
+    revenue_per_conversion: 120
+    rollout_percentage: 1.0
+  - name: base
+    monthly_visitors: 100000
+    revenue_per_conversion: 100
+    rollout_percentage: 1.0
+  - name: worst
+    monthly_visitors: 80000
+    revenue_per_conversion: 80
+    rollout_percentage: 0.7

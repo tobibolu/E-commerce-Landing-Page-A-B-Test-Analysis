@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ab-test-analysis"
+version = "0.1.0"
+description = "Production-style A/B testing analysis for an e-commerce landing page experiment"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.1,<3.0",
+  "numpy>=1.26,<3.0",
+  "scipy>=1.11,<2.0",
+  "statsmodels>=0.14,<1.0",
+  "matplotlib>=3.8,<4.0",
+  "seaborn>=0.13,<1.0",
+  "pyyaml>=6.0,<7.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9.0",
+  "ruff>=0.6,<1.0",
+  "black>=24.0,<25.0",
+  "mypy>=1.10,<2.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+warn_return_any = true
+warn_unused_configs = true
