@@ -1,12 +1,33 @@
-# Ignore Jupyter Notebook checkpoints
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Ignore macOS system file
+# macOS system files
 .DS_Store
 
-# Ignore pickle files
+# Serialized models
 *.pkl
-
-# Ignore joblib files
 *.joblib
 
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# SQLite databases (generated at runtime)
+data/*.db
+
+# Environment variables
+.env
