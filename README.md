@@ -95,11 +95,9 @@ See [`sql/queries.sql`](sql/queries.sql) for the full query set.
 
 Python 3.11 | pandas | NumPy | SciPy | statsmodels | Matplotlib | Seaborn | Streamlit | SQLite | pytest
 
-## Live Dashboard
+## Live Demo
 
-> Interactive Tableau Public dashboard: _Coming soon_
->
-> To set up: Upload the dataset to [Tableau Public](https://public.tableau.com), build your visualizations, publish, and replace this link.
+**[Launch Interactive Dashboard](https://ecommerce-landing-page-n4ktmi6daffgyxmbpmq3hh.streamlit.app/)**
 
 ## License
 
