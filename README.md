@@ -99,8 +99,6 @@ Python 3.11 | pandas | NumPy | SciPy | statsmodels | Matplotlib | Seaborn | Stre
 
 **[Launch Interactive Dashboard](https://ecommerce-landing-page-n4ktmi6daffgyxmbpmq3hh.streamlit.app/)**
 
-> Tableau Public dashboard: _Coming soon_ — upload the dataset to [Tableau Public](https://public.tableau.com) to create additional visualizations.
-
 ## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
