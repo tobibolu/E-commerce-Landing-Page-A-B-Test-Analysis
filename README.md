@@ -11,7 +11,7 @@ A rigorous statistical analysis of a landing page experiment involving 290K+ use
 | Absolute difference | -0.16% |
 | P-value (Z-test) | 0.1899 (not significant) |
 | Cohen's h effect size | -0.005 (negligible) |
-| P(treatment better) [Bayesian] | ~37% |
+| P(treatment better) [Bayesian] | 9.4% |
 | Estimated annual revenue impact | -$189K |
 | **Recommendation** | **Keep current design** |
 
@@ -66,9 +66,9 @@ With ~145K users per group and a baseline conversion of 12%, this test can relia
 
 ### 3. Bayesian A/B Testing
 Using a Beta-Binomial conjugate model with uninformative Beta(1,1) priors:
-- Posterior probability that treatment is better: ~37%
-- Expected loss if choosing treatment: ~0.02 percentage points
-- The Bayesian analysis confirms the frequentist conclusion: no meaningful difference
+- Posterior probability that treatment is better: 9.4%
+- Expected loss if choosing treatment: 0.16 percentage points
+- The Bayesian analysis reinforces the frequentist conclusion: the control is almost certainly better
 
 ### 4. Segmented Analysis with Multiple Testing Correction
 Country-level analysis (US, UK, Canada) with Bonferroni correction adjusting alpha from 0.05 to 0.017. No segment shows a significant difference.
@@ -94,3 +94,13 @@ See [`sql/queries.sql`](sql/queries.sql) for the full query set.
 ## Tech Stack
 
 Python 3.11 | pandas | NumPy | SciPy | statsmodels | Matplotlib | Seaborn | Streamlit | SQLite | pytest
+
+## Live Dashboard
+
+> Interactive Tableau Public dashboard: _Coming soon_
+>
+> To set up: Upload the dataset to [Tableau Public](https://public.tableau.com), build your visualizations, publish, and replace this link.
+
+## License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
