@@ -9,7 +9,7 @@ A rigorous statistical analysis of a landing page experiment involving 290K+ use
 | Control conversion rate | 12.04% |
 | Treatment conversion rate | 11.88% |
 | Absolute difference | -0.16% |
-| P-value (Z-test) | 0.1899 (not significant) |
+| P-value (Z-test) | 0.1899 (raw: 0.189883, not significant) |
 | Cohen's h effect size | -0.005 (negligible) |
 | P(treatment better) [Bayesian] | 9.4% |
 | Estimated annual revenue impact | -$189K |
@@ -71,7 +71,7 @@ Using a Beta-Binomial conjugate model with uninformative Beta(1,1) priors:
 - The Bayesian analysis reinforces the frequentist conclusion: the control is almost certainly better
 
 ### 4. Segmented Analysis with Multiple Testing Correction
-Country-level analysis (US, UK, Canada) with Bonferroni correction adjusting alpha from 0.05 to 0.017. No segment shows a significant difference.
+Country-level analysis (US, UK, Canada) with Bonferroni correction adjusting alpha from 0.05 to 0.017. Significance decisions are computed from unrounded p-values (rounded values shown for display only). No segment shows a significant difference.
 
 ## SQL Analytics
 

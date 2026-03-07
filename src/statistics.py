@@ -3,6 +3,7 @@
 Implements frequentist Z-test, power analysis, Bayesian analysis,
 and multiple testing correction.
 """
+from __future__ import annotations
 
 import numpy as np
 import pandas as pd
@@ -41,6 +42,7 @@ def z_test(df: pd.DataFrame, group_col: str = "group",
     return {
         "z_statistic": round(z_stat, 4),
         "p_value": round(p_val, 4),
+        "p_value_raw": float(p_val),
         "control_conv": round(p_ctrl, 6),
         "treatment_conv": round(p_treat, 6),
         "absolute_diff": round(diff, 6),
@@ -211,13 +213,14 @@ def segment_analysis(df: pd.DataFrame, segment_col: str,
         test["segment"] = seg
         test["n_total"] = len(seg_df)
         results.append(test)
-        p_values.append(test["p_value"])
+        p_values.append(test.get("p_value_raw", test["p_value"]))
 
     correction = bonferroni_correction(p_values)
     adj_alpha = correction["adjusted_alpha"]
 
     results_df = pd.DataFrame(results)
-    results_df["bonferroni_significant"] = results_df["p_value"] < adj_alpha
+    pvals = results_df.get("p_value_raw", results_df["p_value"])
+    results_df["bonferroni_significant"] = pvals < adj_alpha
     results_df["adjusted_alpha"] = adj_alpha
 
     return results_df

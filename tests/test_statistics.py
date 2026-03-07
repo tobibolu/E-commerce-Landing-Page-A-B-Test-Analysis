@@ -9,7 +9,7 @@ import pandas as pd
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from src.statistics import (
     z_test, cohens_h, interpret_effect_size,
-    power_analysis, bayesian_ab_test, bonferroni_correction,
+    power_analysis, bayesian_ab_test, bonferroni_correction, segment_analysis,
 )
 
 
@@ -88,3 +88,35 @@ class TestBonferroni:
         # With 2 tests, adjusted alpha = 0.025
         assert result["results"][0]["significant"]  # 0.02 < 0.025
         assert not result["results"][1]["significant"]  # 0.03 > 0.025
+
+
+class TestSegmentAnalysis:
+    def test_uses_raw_p_values_for_bonferroni(self, monkeypatch):
+        df = pd.DataFrame({
+            "segment": ["A", "A", "B", "B", "C", "C"],
+            "group": ["control", "treatment"] * 3,
+            "converted": [0, 0, 0, 0, 0, 0],
+        })
+
+        # adjusted_alpha = 0.05 / 3 = 0.016667
+        pvals = {"A": 0.016664, "B": 0.4, "C": 0.5}
+
+        def fake_z_test(seg_df, group_col="group", conv_col="converted", **_):
+            segment = seg_df["segment"].iloc[0]
+            p_raw = pvals[segment]
+            return {
+                "z_statistic": 0.0,
+                "p_value": round(p_raw, 4),
+                "p_value_raw": p_raw,
+                "control_conv": 0.1,
+                "treatment_conv": 0.1,
+                "absolute_diff": 0.0,
+                "relative_diff_pct": 0.0,
+                "ci_95_lower": -0.01,
+                "ci_95_upper": 0.01,
+            }
+
+        monkeypatch.setattr("src.statistics.z_test", fake_z_test)
+        result = segment_analysis(df, "segment")
+        row_a = result[result["segment"] == "A"].iloc[0]
+        assert row_a["bonferroni_significant"]
