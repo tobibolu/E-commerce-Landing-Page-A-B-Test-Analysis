@@ -1,6 +1,6 @@
 # E-commerce Landing Page A/B Test Analysis
 
-A rigorous statistical analysis of a landing page experiment involving 290K+ users, combining frequentist hypothesis testing, Bayesian inference, and power analysis to deliver actionable business recommendations.
+A statistical analysis of a landing page experiment with 290K+ users. It combines frequentist hypothesis testing, Bayesian inference, and power analysis to reach a clear business recommendation.
 
 ## Key Results
 
@@ -68,7 +68,7 @@ With ~145K users per group and a baseline conversion of 12%, this test can relia
 Using a Beta-Binomial conjugate model with uninformative Beta(1,1) priors:
 - Posterior probability that treatment is better: 9.4%
 - Expected loss if choosing treatment: 0.16 percentage points
-- The Bayesian analysis reinforces the frequentist conclusion: the control is almost certainly better
+- The Bayesian analysis backs up the frequentist conclusion: the control is very likely the better option
 
 ### 4. Segmented Analysis with Multiple Testing Correction
 Country-level analysis (US, UK, Canada) with Bonferroni correction adjusting alpha from 0.05 to 0.017. No segment shows a significant difference.
@@ -101,4 +101,4 @@ Python 3.11 | pandas | NumPy | SciPy | statsmodels | Matplotlib | Seaborn | Stre
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
