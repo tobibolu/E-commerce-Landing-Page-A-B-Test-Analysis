@@ -3,6 +3,7 @@
 Demonstrates SQL proficiency: CTEs, window functions, date functions,
 aggregations, and subqueries for conversion funnel analysis.
 """
+from __future__ import annotations
 
 import os
 import sqlite3

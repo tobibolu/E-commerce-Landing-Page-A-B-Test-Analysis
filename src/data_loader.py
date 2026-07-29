@@ -1,4 +1,5 @@
 """Data loading and cleaning for A/B test analysis."""
+from __future__ import annotations
 
 import os
 import pandas as pd
